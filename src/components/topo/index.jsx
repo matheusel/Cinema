@@ -15,9 +15,12 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 import './style.css'
 
+import { Link } from 'react-router-dom';
+
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+import Home from '../../routes/Home';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -61,8 +64,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const pages = ['Home', 'News', 'Top', 'Movies' ,'Tv Shows'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['News', 'Top', 'Movies' ,'TvShows'];
+
+const settings = ['Profile', 'Account', 'Reviews', 'Logout'];
 
 function Topo() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -87,24 +91,10 @@ function Topo() {
     <AppBar position="static" sx={{ background: '#0B0C0E' }}>
       <Container maxWidth="xl" className='header' sx={{ background: 'transparent' }}>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+
+          <a href="/" >
+            <img src='logo.png' style={{ width:'100px', scale: '1.5', cursor: 'default' }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 10 }} />
+          </a>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -137,36 +127,19 @@ function Topo() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" component={Link} to={page} sx={{ color: 'inherit', display: 'block', textAlign: 'center', fontWeight: 700, textDecoration: 'none', }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+          
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
+                component={Link} to={page}
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 3, mx: 1, display: 'block', textAlign: 'center', fontWeight: 700, color: 'inherit', textDecoration: 'none', }}
               >
                 {page}
               </Button>
@@ -178,7 +151,7 @@ function Topo() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search"
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
@@ -206,7 +179,7 @@ function Topo() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={handleCloseUserMenu} component={Link} to={setting}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

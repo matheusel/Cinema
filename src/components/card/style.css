@@ -1,0 +1,22 @@
+.containerzin {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: inline-flex;
+    font-weight: bold;
+}
+
+.cardzin {
+    margin: 20px;
+    filter: grayscale(var(--value, 100%)); --value:48%
+    filter: saturate(var(--value, -20));
+    transition: 0.5s;
+
+}
+
+.cardzin:hover {
+    transition: 0.5s;
+    filter: grayscale(var(--value, 100%)); --value:10%;
+    filter: saturate(var(--value, 5)); --value:1.5;
+}
+

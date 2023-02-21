@@ -47,27 +47,18 @@ function base(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box>
       <CssBaseline />
-      <AppBar component="nav" sx={{ display: 'flex', position: 'absolute', mt: '100vh', background: '#0B0C0E' }}>
+      <AppBar component="nav" sx={{ display: 'flex', position: 'relative', background: '#0B0C0E' }}>
         <Toolbar>
-          {/* <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton> */}
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}
           >
-            MUI
+            PrimeReviews
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
                 {item}
@@ -76,36 +67,11 @@ function base(props) {
           </Box>
         </Toolbar>
       </AppBar>
-      {/* <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box> */}
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
       </Box>
     </Box>
   );
 }
-
-base.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default base;

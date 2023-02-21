@@ -4,13 +4,15 @@ import Card from '@mui/joy/Card';
 import CardCover from '@mui/joy/CardCover';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
+import "./style.css"
 
 function Card1 () {
   return (
-    <Box
+    <div className="containerzin"> 
+    <Box className="cardzin"
       sx={{
         perspective: '1000px',
-        transition: 'transform 0.4s',
+        transition: 'transform 0.6s',
         '& > div, & > div > div': {
           transition: 'inherit',
         },
@@ -18,10 +20,10 @@ function Card1 () {
           '& > div': {
             transform: 'rotateY(30deg)',
             '& > div:nth-child(2)': {
-              transform: 'scaleY(0.9) translate3d(20px, 30px, 40px)',
+              transform: 'scaleY(0.9) translate3d(10px, 20px, 30px)',
             },
             '& > div:nth-child(3)': {
-              transform: 'translate3d(45px, 50px, 40px)',
+              transform: 'translate3d(45px, 20px, 40px) rotate(90deg) scaleY(1.1)',
             },
           },
         },
@@ -34,7 +36,7 @@ function Card1 () {
           width: 250,
           height: 350,
           backgroundColor: 'transparent',
-          borderColor: '#000',
+          borderColor: 'transparent',
         }}
       >
         <Typography level="h2" fontSize="lg" textColor="#000">
@@ -49,7 +51,7 @@ function Card1 () {
           }}
         >
           <Typography level="h2" fontSize="lg" textColor="#fff">
-            <img src='https://upload.wikimedia.org/wikipedia/pt/d/da/Minha_M%C3%A3e_%C3%A9_uma_Pe%C3%A7a.jpg' style={{width: '100%', height: '100%'}}></img>
+            <img src='https://nerdtatuado.com.br/wp-content/uploads/2022/03/Godfather_BR_800x1200.jpg' style={{width: '100%', height: '100%'}}></img>
           </Typography>
         </CardCover>
         <CardContent
@@ -67,6 +69,7 @@ function Card1 () {
         </CardContent>
       </Card>
     </Box>
+    </div>
   );
 }
 
