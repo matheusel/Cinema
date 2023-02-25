@@ -6,7 +6,6 @@ import Select1 from '../components/select'
 const Movies = () => {
     return (
         <div>
-            < Select1 />
             < Card1 />
             < Card1 />
             < Card1 />

@@ -15,8 +15,8 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
   '& .MuiInputBase-input': {
     borderRadius: 10,
     position: 'relative',
-    backgroundColor: theme.palette.background.paper,
-    border: '1px solid #161F30',
+    backgroundColor: "white",
+    border: '1px solid #EFED08',
     fontSize: 16,
     padding: '10px 26px 10px 12px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
@@ -35,8 +35,8 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     ].join(','),
     '&:focus': {
       borderRadius: 10,
-      borderColor: '#161F30',
-      boxShadow: '0 0 0 0.2rem #161F30',
+      borderColor: '#EFED08',
+      boxShadow: '0 0 0 0.1rem #EFED08',
     },
   },
 }));
@@ -49,7 +49,7 @@ export default function Select1() {
   return (
     <div className='select1'>
       <FormControl sx={{ m: 1 }} variant="standard">
-      <InputLabel id="demo-customized-select-label">Year</InputLabel>
+        <InputLabel id="demo-customized-select-label">Year</InputLabel>
         <Select
           labelId="demo-customized-select-label"
           id="demo-customized-select"
@@ -57,12 +57,9 @@ export default function Select1() {
           onChange={handleChange}
           input={<BootstrapInput />}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={10}>...</MenuItem>
+          <MenuItem value={20}>...</MenuItem>
+          <MenuItem value={30}>...</MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{ m: 1 }} variant="standard">
@@ -74,17 +71,14 @@ export default function Select1() {
           onChange={handleChange}
           input={<BootstrapInput />}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={10}>...</MenuItem>
+          <MenuItem value={20}>...</MenuItem>
+          <MenuItem value={30}>...</MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{ m: 1 }} variant="standard">
         <InputLabel htmlFor="demo-customized-select-native">Sort By
-</InputLabel>
+        </InputLabel>
         <NativeSelect
           id="demo-customized-select-native"
           value={age}
@@ -92,9 +86,9 @@ export default function Select1() {
           input={<BootstrapInput />}
         >
           <option aria-label="None" value="" />
-          <option value={10}>Ten</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option>
+          <option value={10}>...</option>
+          <option value={20}>...</option>
+          <option value={30}>...</option>
         </NativeSelect>
       </FormControl>
     </div>

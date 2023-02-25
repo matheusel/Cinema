@@ -64,9 +64,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const pages = ['News', 'Top', 'Movies' ,'TvShows'];
+const pages = ['News', 'Top', 'Movies', 'TvShows'];
 
-const settings = ['Profile', 'Account', 'Reviews', 'Logout'];
+const settings = ['Admin', 'Profile', 'Account', 'Reviews', 'Logout'];
 
 function Topo() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -93,7 +93,7 @@ function Topo() {
         <Toolbar disableGutters>
 
           <a href="/" >
-            <img src='logo.png' style={{ width:'100px', scale: '1.5', cursor: 'default' }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 10 }} />
+            <img src='logo.png' style={{ width: '100px', scale: '1.5', cursor: 'default' }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 10 }} />
           </a>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -132,7 +132,7 @@ function Topo() {
               ))}
             </Menu>
           </Box>
-          
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -159,7 +159,7 @@ function Topo() {
           <Box sx={{ flexGrow: 0, mx: '20px' }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="./logo.png" />
               </IconButton>
             </Tooltip>
             <Menu

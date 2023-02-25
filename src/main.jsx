@@ -12,6 +12,11 @@ import News from './routes/News'
 import Top from './routes/Top'
 import TvShows from './routes/TvShows'
 import Error from './routes/Error'
+import Admin from './routes/Admin'
+import Criar from './routes/Criar'
+import Deletar from './routes/Deletar'
+import Buscar from './routes/Buscar'
+import Atualizar from './routes/Atualizar'
 
 export const router = createBrowserRouter([
   {
@@ -42,7 +47,27 @@ export const router = createBrowserRouter([
       {
         path: "tvshows",
         element: <TvShows />
-      }
+      },
+      {
+        path: "admin",
+        element: <Admin />
+      },
+      {
+        path: "admin/criar",
+        element: <Criar />
+      },
+      {
+        path: "admin/buscar",
+        element: <Buscar />
+      },
+      {
+        path: "admin/deletar",
+        element: <Deletar />
+      },
+      {
+        path: "admin/atualizar",
+        element: <Atualizar />
+      },
     ]
   }
 ])

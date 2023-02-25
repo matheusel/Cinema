@@ -12,7 +12,7 @@ function App() {
     <div className="App">
         < Topo />
         <Outlet />
-        < Base />
+        {/* < Base /> */}
     </div>
   )
 }
