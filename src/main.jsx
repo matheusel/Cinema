@@ -17,6 +17,8 @@ import Criar from './routes/Criar'
 import Deletar from './routes/Deletar'
 import Buscar from './routes/Buscar'
 import Atualizar from './routes/Atualizar'
+import visualizar from './components/visualizar';
+import Visualizar from './components/visualizar';
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +69,14 @@ export const router = createBrowserRouter([
       {
         path: "admin/atualizar",
         element: <Atualizar />
+      },
+      {
+        path: "movies/:id",
+        element: <Visualizar />
+      },
+      {
+        path: "tvshows/:id",
+        element: <Visualizar />
       },
     ]
   }

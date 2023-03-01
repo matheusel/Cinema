@@ -7,11 +7,11 @@ import Typography from '@mui/joy/Typography';
 import "./style.css"
 import { Link } from '@mui/material';
 
-function Card1() {
+function Card1({ imagem, nome, id }) {
   return (
     <div className="containerzin">
 
-      <Link href="#" sx={{ textDecoration: 'none' }}>
+      <Link href={id} sx={{ textDecoration: 'none' }}>
         <Box className="cardzin"
           sx={{
             perspective: '1000px',
@@ -54,7 +54,7 @@ function Card1() {
               }}
             >
               <Typography level="h2" fontSize="lg" textColor="#fff">
-                <img src='https://nerdtatuado.com.br/wp-content/uploads/2022/03/Godfather_BR_800x1200.jpg' style={{ width: '100%', height: '100%' }}></img>
+                <img src={imagem} style={{ width: '100%', height: '100%' }}></img>
               </Typography>
             </CardCover>
             <CardContent
@@ -67,7 +67,7 @@ function Card1() {
               }}
             >
               <Typography level="h1" fontSize="lg" textColor="#fff" box-shadow="#0B0C0E" m={3}>
-                Nome do Filme
+                {nome}
               </Typography>
             </CardContent>
           </Card>

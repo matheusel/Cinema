@@ -49,8 +49,8 @@ export default function DeletarAdmin() {
             <div>
                 <Box>
                     <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Escolha o banco de dados</InputLabel>
-                        <Select
+                        <InputLabel sx={{ color: "white" }} id="demo-simple-select-label">Escolha o banco de dados</InputLabel>
+                        <Select sx={{ color: "white" }}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             value={selectBanco}
