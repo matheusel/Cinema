@@ -41,3 +41,17 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/*estilização top*/
+
+.titulo_f, .titulo_s{
+	margin-top: 1.5%;
+	text-align: center;
+	color: yellow;
+}
+
+.top_filmes, .top_series{
+	margin-top: 1.5%;
+	display: flex;
+	flex-direction: row;
+}
