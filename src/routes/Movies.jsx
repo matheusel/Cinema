@@ -1,6 +1,5 @@
 import React from "react";
 import Card1 from "../components/card";
-import Select1 from '../components/select'
 import Api from "../service/api";
 import { useEffect, useState } from 'react';
 
@@ -26,7 +25,7 @@ const Movies = () => {
                 });
         }
         getApi();
-    });
+    }, []);
 
     if (load) {
         return (
@@ -47,12 +46,15 @@ const Movies = () => {
             ) : (
                 item.map((item) => (
                     <Card1
-                        id={`/Movies/${item.id}`}
-                        key={item.id}
-                        nome={item.Nome}
-                        imagem={item.imagem}
+                        id={`/Movies/${item['id']}`}
+                        key={item['id']}
+                        nome={item['Nome']}
+                        direcao={item['direcao']}
+                        trailer={item['trailer']}
+                        imagem={item['imagem']}
                     />
                 ))
+
             )}
         </>
     );
