@@ -11,6 +11,8 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
+import { Rating } from '@mui/material';
+
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
 export default function VisualizarFilmes() {
@@ -67,6 +69,10 @@ export default function VisualizarFilmes() {
 
           <Box sx={{ margin: 'auto' }}>
             <img className='w-50' src={item.imagem}></img>
+          </Box>
+
+          <Box sx={{ margin: '30px' }}>
+            <Rating size="large" />
           </Box>
 
           <Typography level="h5" fontSize="lg" textColor="#fff" box-shadow="#0B0C0E" sx={{ margin: '30px' }}>
