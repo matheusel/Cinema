@@ -20,6 +20,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 
+import logo from "../../../public/logo.png"
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -91,7 +93,7 @@ function Topo() {
         <Toolbar disableGutters>
 
           <a href="/" >
-            <img src='logo.png' style={{ width: '100px', scale: '1.5', cursor: 'default' }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 10 }} />
+            <img src={logo} style={{ width: '100px', scale: '1.5', cursor: 'default' }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 10 }} />
           </a>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -157,7 +159,7 @@ function Topo() {
           <Box sx={{ flexGrow: 0, mx: '20px' }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="./logo.png" />
+                <Avatar alt="Remy Sharp" src={logo} />
               </IconButton>
             </Tooltip>
             <Menu

@@ -27,7 +27,7 @@ export default function VisualizarFilmes() {
     Api
      .delete(`/filmes/deletar/${id}`)
      .then((response) => {
-       
+       console.log("deu bom")
      })
      .catch((error) => {
        console.log(error);

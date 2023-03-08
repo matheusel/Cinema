@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -13,36 +14,32 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 
+import Api from '../../service/api';
+
+
 import './style.css'
 
 export default function CriarAdmin() {
 
+    const { register, handleSubmit } = useForm()
+
+    const addPost = data => Api.post(`/${selectBanco}/criar`, data)
+
+    .then((response) => {
+        console.log("deu bom")
+    })
+    .catch((error) => {
+        console.log(error);
+        return;
+    });
+
     const [selectBanco, setSelectBanco] = useState("")
-    const [inputValue, setInputValue] = useState("");
-    const [inputValue2, setInputValue2] = useState("");
-    const [inputValue3, setInputValue3] = useState("");
-    const [inputValue4, setInputValue4] = useState("");
-    const [inputValue5, setInputValue5] = useState("");
 
     const handleBancoEstadoUpdate = (event) => {
         setSelectBanco(event.target.value);
     }
 
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
-    };
-    const handleInputChange2 = (event) => {
-        setInputValue(event.target.value);
-    };
-    const handleInputChange3 = (event) => {
-        setInputValue(event.target.value);
-    };
-    const handleInputChange4 = (event) => {
-        setInputValue(event.target.value);
-    };
-    const handleInputChange5 = (event) => {
-        setInputValue(event.target.value);
-    };
+
 
     return (
         <div className='formulario'>
@@ -56,16 +53,17 @@ export default function CriarAdmin() {
                             value={selectBanco}
                             onChange={handleBancoEstadoUpdate}
                         >
-                            <MenuItem value={"movies"}>Movies</MenuItem>
-                            <MenuItem value={"tvshows"}>TvShows</MenuItem>
+                            <MenuItem value={"filmes"}>Movies</MenuItem>
+                            <MenuItem value={"series"}>TvShows</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
             </div>
 
             <div>
-                {selectBanco === "movies" && (
+                {selectBanco === "filmes" && (
                     <Box
+                        onSubmit={handleSubmit(addPost)}
                         component="form"
                         sx={{
                             '& > :not(style)': { m: 1, width: '25ch' },
@@ -73,24 +71,26 @@ export default function CriarAdmin() {
                         noValidate
                         autoComplete="off"
                     >
-                        <TextField id="standard-basic" label="Nome" variant="standard" />
-                        <TextField id="standard-basic" label="Sinopse" variant="standard" />
-                        <TextField id="standard-basic" label="Direção" variant="standard" />
-                        <TextField type="number" id="standard-basic" label="Duração" variant="standard" />
-                        <TextField id="standard-basic" label="Classificação" variant="standard" />
-                        <TextField type="number" id="standard-basic" label="Lançamento" variant="standard" />
-                        <TextField id="standard-basic" label="Imagem" variant="standard" />
-                        <TextField id="standard-basic" label="Trailer" variant="standard" />
+                        <TextField name='nome' {...register("nome")} label="Nome" variant="standard" />
+                        <TextField name='sinopse' {...register("sinopse")} label="Sinopse" variant="standard" />
+                        <TextField name='direcao' {...register("direcao")} label="Direção" variant="standard" />
+                        <TextField name='duracao' {...register("duracao")} type="number" label="Duração" variant="standard" />
+                        <TextField name='classificacao' {...register("classificacao")} label="Classificação" variant="standard" />
+                        <TextField name='lancamento' {...register("lancamento")} type="text" label="Lançamento" variant="standard" />
+                        <TextField name='imagem' {...register("imagem")} label="Imagem" variant="standard" />
+                        <TextField name='trailer' {...register("trailer")} label="Trailer" variant="standard" />
+                        <TextField name='generos_id' {...register("generos_id")} type="number" label="Gênero" variant="standard" />
                         <Stack direction="row" spacing={2}>
-                            <Button variant="contained" endIcon={<SendIcon />}>
+                            <Button type='submit' variant="contained" endIcon={<SendIcon />}>
                                 Send
                             </Button>
                         </Stack>
                     </Box>
                 )}
 
-                {selectBanco === "tvshows" && (
+                {selectBanco === "series" && (
                     <Box
+                        onSubmit={handleSubmit(addPost)}
                         component="form"
                         sx={{
                             '& > :not(style)': { m: 1, width: '25ch' },
@@ -98,16 +98,17 @@ export default function CriarAdmin() {
                         noValidate
                         autoComplete="off"
                     >
-                        <TextField id="standard-basic" label="Nome" variant="standard" />
-                        <TextField id="standard-basic" label="Sinopse" variant="standard" />
-                        <TextField id="standard-basic" label="Direção" variant="standard" />
-                        <TextField type="number" id="standard-basic" label="Temporadas" variant="standard" />
-                        <TextField type="number" id="standard-basic" label="Classificação" variant="standard" />
-                        <TextField type="number" id="standard-basic" label="Lançamento" variant="standard" />
-                        <TextField id="standard-basic" label="Imagem" variant="standard" />
-                        <TextField id="standard-basic" label="Trailer" variant="standard" />
+                        <TextField name='nome' {...register("nome")} label="Nome" variant="standard" />
+                        <TextField name='sinopse' {...register("sinopse")} label="Sinopse" variant="standard" />
+                        <TextField name='direcao' {...register("direcao")} label="Direção" variant="standard" />
+                        <TextField name='temporadas' {...register("temporadas")} type="number" label="Temporadas" variant="standard" />
+                        <TextField name='classificacao' {...register("classificacao")} type="number" label="Classificação" variant="standard" />
+                        <TextField name='lancamento' {...register("lancamento")} type="text" label="Lançamento" variant="standard" />
+                        <TextField name='imagem' {...register("imagem")} label="Imagem" variant="standard" />
+                        <TextField name='trailer' {...register("trailer")} label="Trailer" variant="standard" />
+                        <TextField name='generos_id' {...register("generos_id")} type="number" label="Gênero" variant="standard" />
                         <Stack direction="row" spacing={2}>
-                            <Button variant="contained" endIcon={<SendIcon />}>
+                            <Button type='submit' variant="contained" endIcon={<SendIcon />}>
                                 Send
                             </Button>
                         </Stack>
